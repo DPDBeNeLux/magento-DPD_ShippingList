@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * DPD Shippinglist configuration
+ *
+ * @author Michiel Van Gucht
+ */
+-->
+<config>
+    <modules>
+        <DPD_Shippinglist>
+            <version>0.0.1</version>
+        </DPD_Shippinglist>
+    </modules>
+    
+    <global>
+	    <blocks>
+            <dpd_shippinglist>
+                <class>DPD_Shippinglist_Block</class>
+            </dpd_shippinglist>
+        </blocks>
+	    <models>
+			<dpd_shippinglist>
+				<class>DPD_Shippinglist_Model</class>
+			</dpd_shippinglist>
+	   </models>
+	   <helpers>
+            <dpd_shippinglist>
+                <class>DPD_Shippinglist_Helper</class>
+            </dpd_shippinglist>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <DPD_Shippinglist after="Mage_Adminhtml">DPD_Shippinglist_Adminhtml</DPD_Shippinglist>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <dpd_shippinglist_addmassaction_observer>
+		                <type>singleton</type>
+                        <class>DPD_Shippinglist_Model_Observer</class>
+                        <method>addMassAction</method>
+                    </dpd_shippinglist_addmassaction_observer>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+		<layout>
+            <updates>
+                <dpd_shippinglist>
+                    <file>dpd/shippinglist.xml</file>
+                </dpd_shippinglist>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

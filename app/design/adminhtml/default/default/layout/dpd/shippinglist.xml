@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_shippinglist_index>
+        <reference name="head">
+			<action method="addCss">
+                <stylesheet>dpd/shippinglist/print.css</stylesheet>
+				<params>media="print"</params>
+            </action>
+			<action method="addCss">
+                <stylesheet>dpd/shippinglist/main.css</stylesheet>
+            </action>
+        </reference>
+    </adminhtml_shippinglist_index>
+</layout>
