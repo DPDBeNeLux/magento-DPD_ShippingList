@@ -1,0 +1,40 @@
+.content-header h3 {
+	font-size: 1.25em;
+	margin: 0;
+	margin-top: 0.2in;
+	padding: 0;
+	color: black;
+}
+
+#dpd_shippinglist_shipper_address,
+#dpd_shippinglist_logo,
+#dpd_shippinglist_signature {
+	display: inline-block;
+	width: auto;
+}
+
+#dpd_shippinglist_logo {
+	position: absolute;
+	top: 0;
+	right: 0;
+	float: right;
+}
+
+#dpd_shippinglist_signature {
+	margin-top: 0.5in;
+}
+
+.grid table {
+   border: none;
+}
+
+.grid tr.headings th,
+.grid table td {
+	border: none;
+	white-space: nowrap
+}
+
+.grid tr.headings th {
+	border-bottom: 2px solid black;
+	border-bottom-color: #000;
+}
