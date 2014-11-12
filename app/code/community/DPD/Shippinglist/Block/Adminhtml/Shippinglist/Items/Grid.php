@@ -31,7 +31,7 @@ class DPD_Shippinglist_Block_Adminhtml_Shippinglist_Items_Grid extends Mage_Admi
 		$orderIds = $this->getRequest()->getParam('entity_id');
 		
 		$collection = Mage::getModel('sales/order_shipment_track')->getCollection()
-			->addAttributeToFilter('main_table.entity_id', array('in' => $orderIds))
+			->addAttributeToFilter('main_table.order_id', array('in' => $orderIds))
 			->addAttributeToFilter('order_billing_address.address_type', 'billing');
 			
 		$collection->getSelect()->join( 
