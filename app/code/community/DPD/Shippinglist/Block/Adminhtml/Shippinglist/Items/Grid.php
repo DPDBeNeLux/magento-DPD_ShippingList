@@ -57,7 +57,7 @@ class DPD_Shippinglist_Block_Adminhtml_Shippinglist_Items_Grid extends Mage_Admi
 				$parcelNumber = $trackData[1];
 			}
 			$item['row_count'] = $i;
-			$item['track_number'] = explode('-', $item['track_number'])[1];
+			$item['track_number'] = $parcelNumber;
 			$item['carrier_code'] = $this->getCarrierCode($item['carrier_code']);
 			
 			$i++;
