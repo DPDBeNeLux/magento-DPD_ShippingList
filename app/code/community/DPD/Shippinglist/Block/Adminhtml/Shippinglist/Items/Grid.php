@@ -50,6 +50,12 @@ class DPD_Shippinglist_Block_Adminhtml_Shippinglist_Items_Grid extends Mage_Admi
 		
 		$i = 1;
 		foreach ($this->getCollection() as $item) {
+			//This should be a helper function getParcelNumber(...)
+			$trackData = explode('-', $item['track_number']);
+			$parcelNumber = '';
+			if(count($trackData) == 2) {
+				$parcelNumber = $trackData[1];
+			}
 			$item['row_count'] = $i;
 			$item['track_number'] = explode('-', $item['track_number'])[1];
 			$item['carrier_code'] = $this->getCarrierCode($item['carrier_code']);
