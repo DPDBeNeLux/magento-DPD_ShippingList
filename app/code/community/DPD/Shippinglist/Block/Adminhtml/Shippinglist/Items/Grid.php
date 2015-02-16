@@ -50,8 +50,9 @@ class DPD_Shippinglist_Block_Adminhtml_Shippinglist_Items_Grid extends Mage_Admi
 		
 		$i = 1;
 		foreach ($this->getCollection() as $item) {
+			$track_data = explode('-', $item['track_number']);
 			$item['row_count'] = $i;
-			$item['track_number'] = explode('-', $item['track_number'])[1];
+			$item['track_number'] = $track_data[1];
 			$item['carrier_code'] = $this->getCarrierCode($item['carrier_code']);
 			
 			$i++;
