@@ -35,13 +35,13 @@ class DPD_Shippinglist_Block_Adminhtml_Shippinglist_Items_Grid extends Mage_Admi
 			->addAttributeToFilter('order_billing_address.address_type', 'billing');
 			
 		$collection->getSelect()->join( 
-			array('order_details'=>'sales_flat_order'), 
+			array('order_details'=> Mage::getConfig()->getTablePrefix().'sales_flat_order'), 
 			'main_table.order_id = order_details.entity_id', 
 			array('main_table.track_number', 'main_table.carrier_code', 'order_details.increment_id', 'order_details.weight')
 		);
 		
 		$collection->getSelect()->join( 
-			array('order_billing_address'=>'sales_flat_order_address'), 
+			array('order_billing_address'=>Mage::getConfig()->getTablePrefix().'sales_flat_order_address'), 
 			'main_table.order_id = order_billing_address.parent_id', 
 			array('main_table.track_number', 'main_table.carrier_code', 'order_billing_address.firstname', 'order_billing_address.lastname', 'order_billing_address.street', 'order_billing_address.country_id', 'order_billing_address.postcode', 'order_billing_address.city')
 		);
